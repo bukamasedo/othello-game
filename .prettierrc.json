@@ -1,0 +1,22 @@
+{
+  "semi": false,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "options": {
+        "semi": false
+      }
+    },
+    {
+      "files": "*.sass",
+      "options": {
+        "semi": true
+      }
+    }
+  ]
+}
