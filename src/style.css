@@ -67,6 +67,10 @@ body {
   margin-top: 2rem;
 }
 
+.pass {
+  margin-top: 1rem;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;

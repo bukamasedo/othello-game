@@ -53,10 +53,11 @@ const checkPieceColor = <N, E extends Element>(piece: N, target: E) => {
   if (piece === blackPiece) target.className = 'black-piece'
 }
 
+
 // オセロボードの初期表示
 const init = () => {
   document.querySelector<HTMLDivElement>('#app')!.innerHTML =
-    '<table class="board"></table><div id="order">黒のターン</div>'
+    '<table class="board"></table><div id="order">黒のターン</div><button class="pass">パス</button>'
 
   const boardElement = document.querySelector<HTMLTableElement>('.board')
 
@@ -240,4 +241,12 @@ cellElements.forEach((element) => {
         checkOrderText
     }
   })
+})
+
+const passElement = document.querySelector<HTMLButtonElement>('.pass')
+passElement?.addEventListener('click', () => {
+  blackOrder = !blackOrder
+  const checkOrderText = blackOrder ? '黒のターン' : '白のターン'
+  document.querySelector<HTMLDivElement>('#order')!.innerText =
+    checkOrderText
 })
