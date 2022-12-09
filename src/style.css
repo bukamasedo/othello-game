@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Kiwi Maru', serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -15,7 +15,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  position: relative;
   margin: 0;
   display: flex;
   place-items: center;
@@ -26,49 +32,111 @@ body {
 .board {
   width: 640px;
   height: 640px;
-  background-color: #006643;
-  border: 16px solid #000000;
+  background-color: hsla(157, 96%, 33%, 1);
+  background-image: radial-gradient(
+      at 71% 7%,
+      hsla(158, 95%, 22%, 0.79) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 100% 100%,
+      hsla(152, 96%, 12%, 0.71) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 5% 100%, hsla(158, 95%, 22%, 0.84) 0px, transparent 50%);
+  border: 16px solid #0d0d0d;
   box-sizing: content-box;
 }
 
-.col {
+#col {
   display: flex;
 }
 
-.row {
+#row {
   width: 80px;
   height: 80px;
-  border: 1px solid #000000;
+  border: 1px solid #0d0d0d;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+}
+
+.can-placed {
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.can-placed:before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #403430;
 }
 
 #cell {
   width: 65px;
   height: 65px;
+}
+
+.black {
+  border-radius: 100%;
+  background-color: #262626;
+}
+.white {
+  border-radius: 100%;
+  background-color: #f2efeb;
+}
+
+.wrap {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.text-plate {
+  font-size: 2rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.3rem 2rem;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
-.black-piece {
-  border-radius: 100%;
-  background-color: #000000;
-}
-.white-piece {
-  border-radius: 100%;
-  background-color: #ffffff;
-}
-
-#order {
-  font-size: 2rem;
-  margin-top: 2rem;
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  z-index: 1;
 }
 
-.pass {
-  margin-top: 1rem;
+.show {
+  display: block !important;
 }
 
 #app {
